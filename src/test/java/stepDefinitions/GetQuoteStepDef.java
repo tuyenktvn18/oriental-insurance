@@ -52,6 +52,6 @@ public class GetQuoteStepDef {
 
     @And("user select Sum insured with amount {string} if {string} is yes on {string} area")
     public void userSelectSumInsuredWithAmountIfIsYesOnSpouseArea(String sumInsured, String option, String member) {
-        if (option.equalsIgnoreCase("Yes")) getQuotePage.selectSumInsuredForPA(member, sumInsured);
+        if (option.equalsIgnoreCase("Yes")) getQuotePage.selectSumInsured(member, sumInsured);
     }
 }

@@ -15,7 +15,7 @@ public class GetQuotePage extends BasePage {
     public String dateOfBirth = "div[id$='%s'] input[id*='dob']";
     public String insureMemberIsNo = "input[value='0'][onclick*='%s']";
     public String insureMemberIsYes = "input[value='1'][onclick*='%s']";
-    public String sumInsured = "div[id$='%s'] select[id*='sumInsured']";
+    public String sumInsuredForMember = "div[id$='%s'] select[id*='sumInsured']";
     public String sumInsuredPA = "div[id$='%s'] select[id*='SumInsuredForPA']";
     public String personalAccidentIsNo = "div[id$='%s'] input[value= '0'][name*='ForPa']";
     public String personalAccidentIsYes = "div[id$='%s'] input[value= '1'][name*='ForPa']";
@@ -47,8 +47,8 @@ public class GetQuotePage extends BasePage {
     }
 
     public void clickToDateOfBirthForMember(String member, String day) {
-        waitForElementClickable(replaceStringInCss(dateOfBirth, member));
-        clickToElement(replaceStringInCss(dateOfBirth, member));
+        waitForElementClickable(replaceStringInCss(dateOfBirth, getMemberXpath(member)));
+        clickToElement(replaceStringInCss(dateOfBirth, getMemberXpath(member)));
         selectDayMonthYear(day);
     }
 
@@ -56,7 +56,7 @@ public class GetQuotePage extends BasePage {
         if (member.equalsIgnoreCase("personal")) {
             selectItemInDefaultDropdown(sumInsuredPersonal, sumInsured);
         } else {
-            selectItemInDefaultDropdown(replaceStringInXpath(sumInsured, getMemberXpath(member)), sumInsured);
+            selectItemInDefaultDropdown(replaceStringInCss(sumInsuredForMember, getMemberXpath(member)), sumInsured);
         }
     }
 
@@ -66,8 +66,8 @@ public class GetQuotePage extends BasePage {
             waitForElementVisible(sumInsuredPAForPersonal);
             selectItemInDefaultDropdown(sumInsuredPAForPersonal, sumInsured);
         } else {
-            waitForElementVisible(replaceStringInXpath(sumInsuredPA, getMemberXpath(member)));
-            selectItemInDefaultDropdown(replaceStringInXpath(sumInsuredPA, getMemberXpath(member)), sumInsured);
+            waitForElementVisible(replaceStringInCss(sumInsuredPA, getMemberXpath(member)));
+            selectItemInDefaultDropdown(replaceStringInCss(sumInsuredPA, getMemberXpath(member)), sumInsured);
         }
     }
 

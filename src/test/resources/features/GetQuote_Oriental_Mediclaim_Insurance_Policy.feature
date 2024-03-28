@@ -8,7 +8,7 @@ Feature: Get Quote - Oriental Mediclaim Insurance Policy (Individual)
     Then user select amount '400000' for PA sum insured if "<Personal PA>" is yes
     When user choose "<Spouse>" option for extra insure on 'spouse' area
     Then user select date of birth with '14 Mar 2000' if "<Spouse>" is yes on 'spouse' area
-    And user select Sum insured with amount '150000.0' if "<Spouse>" is yes on 'Spouse' area
+    And user select Sum insured with amount '150000.0' if "<Spouse>" is yes on 'spouse' area
 #    And user choose 'Personal Accident' option for 'Personal Details'
 #    Then user select amount for 'Personal Details' if covering 'Personal Accident'
 #    When user choose 'Dependent children' option for extra insure
